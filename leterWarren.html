@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buffet Annual Letter</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="styleInvest.css" /> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        zoom = $(".feature").css("background-size");
+        zoom = parseFloat(zoom) / 100;
+        size = zoom * $(".feature").width();
+        $(window).on("scroll", function () {
+          fromTop = $(window).scrollTop();
+          newSize = size - fromTop / 3;
+          if (newSize > $(".feature").width()) {
+            $(".feature").css({
+              "-webkit-background-size": newSize,
+              "-moz-background-size": newSize,
+              "-o-background-size": newSize,
+              "background-size": newSize,
+              "-webkit-filter": "blur(" + 0 + fromTop / 100 + "px)",
+              opacity: 1 - (fromTop / $("html").height()) * 1.3,
+            });
+          }
+        });
+      });
+
+      $(function () {
+        var isChrome =
+          /Chrome/.test(navigator.userAgent) &&
+          /Google Inc/.test(navigator.vendor);
+        var isSafari =
+          /Safari/.test(navigator.userAgent) &&
+          /Apple Computer/.test(navigator.vendor);
+
+        if (isChrome || isSafari) {
+        } else {
+          $(".feature").append('<div class="opaque"></div>');
+          $(window).on("scroll", function () {
+            var opacity = 0 + $(window).scrollTop() / 5000;
+            $(".opaque").css("opacity", opacity);
+          });
+        }
+      });
+    </script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background: #232323;
+        color: #fff;
+      }
+      .opaque {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        background: #d2d6f1;
+      }
+      .lt-ie9 .opaque {
+        display: none;
+      }
+      .feature {
+        position: fixed;
+        top: 0;
+        z-index: 0;
+        width: 100%;
+        padding-top: 50%;
+        background: url("./assets/keneveBG.jpg") center center no-repeat;
+        -webkit-background-size: 250%;
+        -moz-background-size: 250%;
+        -o-background-size: 250%;
+        background-size: 150%;
+        -webkit-box-shadow: 0 -50px 20px -20px #232323 inset;
+        -moz-box-shadow: 0 -50px 20px -20px #232323 inset;
+        box-shadow: 0 -50px 20px -20px #232323 inset;
+      }
+      .content {
+        position: relative;
+        z-index: 1;
+        padding-top: 45%;
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      @media only screen and (min-width: 36.25em) {
+        .content {
+          width: 60%;
+          padding-top: 35%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar bg-body-tertiary fixed-top" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">MetricMind</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Main Menu</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="invest.html">Investmen</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Warren Buffet
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="biography.html">Biography</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item active" href="leterWarren.html"
+                      >Annual Letter</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <br /><br />
+    <!-- navbar -->
+
+    <div class="feature"></div>
+    <div class="content">
+      <!-- title -->
+      <h2>Buffet Annual Letter (2024)</h2>
+      <!-- title -->
+
+      <!-- main -->
+      <p>
+        Surat ini sampai kepada Anda sebagai bagian dari laporan tahunan
+        Berkshire. Sebagai perusahaan publik, kami diwajibkan untuk secara
+        berkala memberi tahu Anda banyak fakta dan angka spesifik. Namun,
+        "laporan" menyiratkan tanggung jawab yang lebih besar. Selain data yang
+        diwajibkan, kami percaya bahwa kami berhutang kepada Anda komentar
+        tambahan tentang apa yang Anda miliki dan bagaimana kami berpikir.
+        Tujuan kami adalah untuk berkomunikasi dengan Anda dengan cara yang kami
+        inginkan jika posisi kami dibalik – yaitu, jika Anda adalah CEO
+        Berkshire sementara saya dan keluarga saya adalah investor pasif,
+        mempercayakan tabungan kami kepada Anda. Pendekatan ini membawa kami
+        pada uraian tahunan tentang perkembangan baik dan buruk di banyak bisnis
+        yang secara tidak langsung Anda miliki melalui saham Berkshire Anda.
+        Namun, ketika membahas masalah di anak perusahaan tertentu, kami mencoba
+        mengikuti nasihat yang diberikan Tom Murphy kepada saya 60 tahun yang
+        lalu: "puji dengan nama, kritik dengan kategori."
+      </p>
+
+      <h2>Kesalahan – Ya, Kami Melakukannya di Berkshire</h2>
+      <p>
+        Terkadang saya membuat kesalahan dalam menilai prospek ekonomi masa
+        depan dari bisnis yang telah saya beli untuk Berkshire – masing-masing
+        merupakan kasus alokasi modal yang salah. Hal itu terjadi baik pada
+        penilaian ekuitas yang dapat diperdagangkan – kami memandang ini sebagai
+        kepemilikan sebagian dari bisnis – maupun akuisisi 100% perusahaan.
+      </p>
+      <p>
+        Di lain waktu, saya pernah membuat kesalahan saat menilai kemampuan atau
+        kesetiaan para manajer yang dipekerjakan Berkshire. Kekecewaan terkait
+        kesetiaan ini dapat menyakitkan melebihi dampak finansialnya, rasa sakit
+        yang dapat mendekati rasa sakit akibat kegagalan pernikahan.
+      </p>
+      <p>
+        Rata-rata keberhasilan yang layak dalam pengambilan keputusan personel
+        adalah satu-satunya yang dapat diharapkan. Dosa utama adalah menunda
+        perbaikan kesalahan atau apa yang disebut Charlie Munger sebagai
+        "mengisap jempol". Masalah, katanya kepada saya, tidak bisa dihilangkan
+        begitu saja. Masalah membutuhkan tindakan, betapapun tidak nyamannya
+        tindakan itu.
+      </p>
+      <p>
+        Selama periode 2019-2023, saya telah menggunakan kata "kesalahan" atau
+        "kekeliruan" sebanyak 16 kali dalam surat-surat saya kepada Anda. Banyak
+        perusahaan besar lainnya tidak pernah menggunakan kedua kata tersebut
+        selama periode itu. Amazon, harus saya akui, membuat beberapa pengamatan
+        yang sangat jujur ​​dalam suratnya tahun 2021. Di tempat lain, umumnya
+        hanya berupa kata-kata dan gambar yang menyenangkan.
+      </p>
+      <p>
+        Saya juga pernah menjadi direktur perusahaan publik besar di mana kata
+        "kesalahan" atau "keliru" adalah kata-kata terlarang dalam rapat dewan
+        direksi atau panggilan analis. Tabu itu, yang menyiratkan kesempurnaan
+        manajerial, selalu membuat saya gugup (meskipun, terkadang, mungkin ada
+        masalah hukum yang membuat diskusi terbatas lebih disarankan. Kita hidup
+        dalam masyarakat yang sangat suka menuntut.)
+      </p>
+      <p>
+        Di usia 94 tahun, tidak lama lagi Greg Abel akan menggantikan saya
+        sebagai CEO dan akan menulis surat tahunan. Greg menganut prinsip
+        Berkshire bahwa sebuah "laporan" adalah apa yang harus diberikan CEO
+        Berkshire kepada para pemilik setiap tahunnya. Dan dia juga memahami
+        bahwa jika Anda mulai menipu para pemegang saham, Anda akan segera
+        mempercayai omong kosong Anda sendiri dan menipu diri sendiri juga.
+      </p>
+
+      <h2>Pete Liegl – One of a Kind</h2>
+      <p>
+        Izinkan saya berhenti sejenak untuk menceritakan kisah luar biasa
+        tentang Pete Liegl, seorang pria yang tidak dikenal oleh sebagian besar
+        pemegang saham Berkshire, tetapi yang telah menyumbangkan miliaran dolar
+        untuk kekayaan agregat mereka. Pete meninggal pada bulan November, masih
+        bekerja di usia 80 tahun.
+      </p>
+      <p>
+        Saya pertama kali mendengar tentang Forest River – perusahaan Indiana
+        yang didirikan dan dikelola oleh Pete – pada tanggal 21 Juni 2005. Pada
+        hari itu saya menerima surat dari seorang perantara yang merinci data
+        relevan tentang perusahaan tersebut, sebuah produsen kendaraan rekreasi
+        (“RV”). Penulis surat itu mengatakan bahwa Pete, pemilik 100% saham
+        Forest River, secara khusus ingin menjualnya kepada Berkshire. Dia juga
+        memberi tahu saya harga yang diharapkan Pete untuk diterima. Saya
+        menyukai pendekatan yang lugas ini.
+      </p>
+      <p>
+        Saya melakukan beberapa pengecekan dengan dealer RV, menyukai apa yang
+        saya pelajari dan mengatur pertemuan pada tanggal 28 Juni di Omaha. Pete
+        membawa serta istrinya, Sharon, dan putrinya, Lisa. Ketika kami bertemu,
+        Pete meyakinkan saya bahwa dia ingin terus menjalankan bisnisnya tetapi
+        akan merasa lebih nyaman jika dia dapat menjamin keamanan finansial
+        untuk keluarganya.
+      </p>
+      <p>
+        Pete selanjutnya menyebutkan bahwa ia memiliki beberapa properti yang
+        disewakan kepada Forest River dan belum tercakup dalam surat tanggal 21
+        Juni. Dalam beberapa menit, kami mencapai kesepakatan harga untuk
+        aset-aset tersebut karena saya menyatakan tidak memerlukan penilaian
+        dari Berkshire tetapi akan menerima penilaiannya saja.
+      </p>
+      <p>
+        Kemudian kami sampai pada poin lain yang perlu diklarifikasi. Saya
+        bertanya kepada Pete berapa kompensasi yang seharusnya ia terima, dan
+        menambahkan bahwa apa pun yang ia katakan, saya akan menerimanya. (Ini,
+        perlu saya tambahkan, bukanlah pendekatan yang saya rekomendasikan untuk
+        penggunaan umum.)
+      </p>
+      <p>
+        Pete terdiam sejenak saat istri, putri, dan saya mencondongkan tubuh ke
+        depan. Kemudian dia mengejutkan kami: “Baiklah, saya melihat pernyataan
+        proksi Berkshire dan saya tidak ingin menghasilkan lebih dari bos saya,
+        jadi bayarlah saya $100.000 per tahun.” Setelah saya tersadar dari
+        keterkejutanku, Pete menambahkan: “Tetapi kita akan menghasilkan X (dia
+        menyebutkan sebuah angka) tahun ini, dan saya ingin bonus tahunan
+        sebesar 10% dari setiap pendapatan di atas apa yang perusahaan hasilkan
+        sekarang.” Saya menjawab: “Oke Pete, tetapi jika Forest River melakukan
+        akuisisi yang signifikan, kami akan melakukan penyesuaian yang sesuai
+        untuk modal tambahan yang digunakan.” Saya tidak mendefinisikan “sesuai”
+        atau “signifikan,” tetapi istilah-istilah yang samar itu tidak pernah
+        menimbulkan masalah.
+      </p>
+      <p>
+        Kami berempat kemudian pergi makan malam di Happy Hollow Club di Omaha
+        dan hidup bahagia selamanya. Selama 19 tahun berikutnya, Pete
+        menunjukkan performa yang luar biasa. Tidak ada pesaing yang mendekati
+        performanya.
+      </p>
+      <p>
+        Tidak setiap perusahaan memiliki bisnis yang mudah dipahami dan hanya
+        ada sedikit pemilik atau manajer seperti Pete. Dan, tentu saja, saya
+        berharap akan membuat kesalahan tentang bisnis yang dibeli Berkshire dan
+        terkadang keliru dalam mengevaluasi tipe orang yang saya ajak berurusan.
+      </p>
+      <p>
+        Namun saya juga telah mengalami banyak kejutan menyenangkan baik dalam
+        potensi bisnis maupun kemampuan dan kesetiaan manajer. Dan pengalaman
+        kami menunjukkan bahwa satu keputusan yang tepat dapat membuat perbedaan
+        yang luar biasa dari waktu ke waktu. (Bayangkan GEICO sebagai keputusan
+        bisnis, Ajit Jain sebagai keputusan manajerial, dan keberuntungan saya
+        menemukan Charlie Munger sebagai mitra yang unik, penasihat pribadi, dan
+        teman yang setia.) Kesalahan akan hilang; para pemenang dapat terus
+        bersinar selamanya.
+      </p>
+      <p>
+        Satu poin lagi dalam pemilihan CEO kami: Saya tidak pernah melihat di
+        mana seorang kandidat bersekolah. Tidak pernah! Tentu saja, ada manajer
+        hebat yang bersekolah di sekolah-sekolah paling terkenal. Tetapi ada
+        banyak orang seperti Pete yang mungkin mendapat manfaat dengan
+        bersekolah di institusi yang kurang bergengsi atau bahkan tidak
+        repot-repot menyelesaikan sekolah. Lihatlah teman saya, Bill Gates, yang
+        memutuskan bahwa jauh lebih penting untuk memulai di industri yang
+        berkembang pesat yang akan mengubah dunia daripada menunggu ijazah yang
+        bisa ia pajang di dinding. (Bacalah buku barunya, Source Code.)
+      </p>
+      <p>
+        Belum lama ini, saya bertemu – melalui telepon – dengan Jessica Toonkel,
+        yang kakek tirinya, Ben Rosner, dahulu pernah menjalankan bisnis untuk
+        Charlie dan saya. Ben adalah seorang jenius di bidang ritel dan, dalam
+        mempersiapkan laporan ini, saya menanyakan kepada Jessica untuk
+        memastikan pendidikan Ben, yang saya ingat terbatas. Jawaban Jessica:
+        “Ben tidak pernah melanjutkan pendidikan lebih dari kelas 6.”
+      </p>
+      <p>
+        Saya cukup beruntung mendapatkan pendidikan di tiga universitas ternama.
+        Dan saya sangat percaya pada pembelajaran seumur hidup. Namun, saya
+        telah mengamati bahwa sebagian besar bakat bisnis bersifat bawaan dengan
+        faktor bawaan mengalahkan faktor lingkungan. Pete Liegl memang berbakat
+        alami.
+      </p>
+
+      <!-- main -->
+    </div>
+  </body>
+</html>

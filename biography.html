@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buffet Biography</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="styleInvest.css" /> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        zoom = $(".feature").css("background-size");
+        zoom = parseFloat(zoom) / 100;
+        size = zoom * $(".feature").width();
+        $(window).on("scroll", function () {
+          fromTop = $(window).scrollTop();
+          newSize = size - fromTop / 3;
+          if (newSize > $(".feature").width()) {
+            $(".feature").css({
+              "-webkit-background-size": newSize,
+              "-moz-background-size": newSize,
+              "-o-background-size": newSize,
+              "background-size": newSize,
+              "-webkit-filter": "blur(" + 0 + fromTop / 100 + "px)",
+              opacity: 1 - (fromTop / $("html").height()) * 1.3,
+            });
+          }
+        });
+      });
+
+      $(function () {
+        var isChrome =
+          /Chrome/.test(navigator.userAgent) &&
+          /Google Inc/.test(navigator.vendor);
+        var isSafari =
+          /Safari/.test(navigator.userAgent) &&
+          /Apple Computer/.test(navigator.vendor);
+
+        if (isChrome || isSafari) {
+        } else {
+          $(".feature").append('<div class="opaque"></div>');
+          $(window).on("scroll", function () {
+            var opacity = 0 + $(window).scrollTop() / 5000;
+            $(".opaque").css("opacity", opacity);
+          });
+        }
+      });
+    </script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background: #232323;
+        color: #fff;
+      }
+      .opaque {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        background: #d2d6f1;
+      }
+      .lt-ie9 .opaque {
+        display: none;
+      }
+      .feature {
+        position: fixed;
+        top: 0;
+        z-index: 0;
+        width: 100%;
+        padding-top: 50%;
+        background: url("./assets/textBG.jpg") center center no-repeat;
+        -webkit-background-size: 250%;
+        -moz-background-size: 250%;
+        -o-background-size: 250%;
+        background-size: 150%;
+        -webkit-box-shadow: 0 -50px 20px -20px #232323 inset;
+        -moz-box-shadow: 0 -50px 20px -20px #232323 inset;
+        box-shadow: 0 -50px 20px -20px #232323 inset;
+      }
+      .content {
+        position: relative;
+        z-index: 1;
+        padding-top: 45%;
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      @media only screen and (min-width: 36.25em) {
+        .content {
+          width: 60%;
+          padding-top: 35%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar bg-body-tertiary fixed-top" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">MetricMind</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Main Menu</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="invest.html">Investmen</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Warren Buffet
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item active" href="biography.html">Biography</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="leterWarren.html"
+                      >Annual Letter</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <br /><br />
+    <!-- navbar -->
+
+    <!-- main -->
+    <div class="feature"></div>
+    <div class="content">
+      <h2 class="text-center">Buffet Biography</h2>
+      <div>
+        <img
+          src="./assets/buffet.jpg"
+          class="col-md-6 float-md-end mb-3 ms-md-3"
+          alt="..."
+          style="width: 200px; height: 300px"
+        />
+        <p>
+          Warren Edward Buffett (30 Agustus 1930) adalah seorang investor dan
+          filantropis Amerika yang merupakan ketua dan mantan CEO dari
+          konglomerat Berkshire Hathaway. Berkat kesuksesannya, Buffett adalah
+          salah satu investor paling terkenal di Amerika. Menurut Forbes, per
+          Januari 2026, kekayaan bersih Buffett diperkirakan mencapai US$148,9
+          miliar, menjadikannya orang terkaya kesembilan di dunia.
+        </p>
+
+        <p>
+          Buffett lahir di Omaha, Nebraska. Putra dari anggota Kongres AS dan
+          pengusaha Howard Buffett, ia mengembangkan minat dalam bisnis dan
+          investasi sejak muda. Ia masuk Wharton School di Universitas
+          Pennsylvania pada tahun 1947 sebelum lulus dari Universitas Nebraska
+          di Lincoln pada usia 20 tahun. Ia kemudian melanjutkan pendidikannya
+          di Columbia Business School, tempat ia membentuk filosofi investasinya
+          berdasarkan konsep investasi nilai yang dipelopori oleh Benjamin
+          Graham. Ia kuliah di New York Institute of Finance untuk memperdalam
+          latar belakang ekonominya dan segera mengejar karier di bidang bisnis.
+        </p>
+
+        <p>
+          Kemudian ia memulai beberapa usaha bisnis dan kemitraan investasi,
+          termasuk satu dengan Graham. Ia mendirikan Buffett Partnership Ltd.
+          pada tahun 1956 dan perusahaan investasinya akhirnya mengakuisisi
+          produsen tekstil Berkshire Hathaway, menggunakan namanya untuk
+          perusahaan induk yang terdiversifikasi. Buffett muncul sebagai ketua
+          dan pemegang saham mayoritas perusahaan pada tahun 1970. Pada tahun
+          1978, sesama investor dan rekan bisnis lamanya, Charlie Munger,
+          bergabung dengan Buffett sebagai wakil ketua.
+        </p>
+      </div>
+
+      <h2 class="text-center">Business career</h2>
+      <p>
+        Buffett bekerja dari tahun 1951 hingga 1954 di perusahaan ayahnya,
+        Buffett-Falk & Co., sebagai tenaga penjualan investasi; dari tahun 1954
+        hingga 1956 di Graham-Newman Corp. sebagai analis sekuritas; dari tahun
+        1956 hingga 1969 di beberapa kemitraan investasi sebagai mitra umum; dan
+        dari tahun 1970 sebagai ketua dan CEO Berkshire Hathaway Inc.
+      </p>
+
+      <p>
+        Pada tahun 1951, Buffett menemukan bahwa Graham berada di dewan direksi
+        perusahaan asuransi GEICO. Naik kereta api ke Washington, D.C., pada
+        hari Sabtu, ia mengetuk pintu kantor pusat GEICO hingga seorang petugas
+        kebersihan mengizinkannya masuk. Di sana ia bertemu Lorimer Davidson,
+        wakil presiden GEICO, dan keduanya membahas bisnis asuransi selama
+        berjam-jam, dan Buffett melakukan pembelian saham GEICO pertamanya.
+        Davidson akhirnya menjadi teman seumur hidup Buffett dan pengaruh yang
+        abadi, dan kemudian mengenang bahwa ia menganggap Buffett sebagai "pria
+        yang luar biasa" hanya setelah lima belas menit. Buffett ingin bekerja
+        di Wall Street tetapi baik ayahnya maupun Ben Graham mendesaknya untuk
+        tidak melakukannya. Ia menawarkan untuk bekerja untuk Graham secara
+        gratis, tetapi Graham menolak.
+      </p>
+
+      <p>
+        Buffett kembali ke Omaha dan bekerja sebagai pialang saham sambil
+        mengikuti kursus berbicara di depan umum Dale Carnegie. Dengan
+        menggunakan apa yang telah dipelajarinya, ia merasa cukup percaya diri
+        untuk mengajar kelas malam "Prinsip Investasi" di Universitas
+        Nebraska-Omaha. Usia rata-rata muridnya lebih dari dua kali lipat
+        usianya sendiri. Selama waktu ini, ia juga membeli SPBU Sinclair sebagai
+        investasi sampingan, tetapi tidak berhasil.
+      </p>
+
+      <p>
+        Pada tahun 1954, Buffett menerima pekerjaan di kemitraan Benjamin
+        Graham. Gaji awalnya adalah $12.000 per tahun (setara dengan $140.506
+        pada tahun 2024). Di sana ia bekerja sama erat dengan Walter Schloss.
+        Graham bersikeras bahwa pemilihan saham harus memberikan margin keamanan
+        yang luas setelah mempertimbangkan pertukaran antara harga dan nilai
+        intrinsiknya. Pada tahun 1956, Benjamin Graham pensiun dan menutup
+        kemitraannya. Pada saat ini Buffett, yang telah mengumpulkan tabungan
+        pribadi lebih dari $174.000 (setara dengan $2.012.394 pada tahun 2024),
+        memutuskan untuk kembali ke Omaha, di mana ia akan segera memulai
+        serangkaian kemitraan investasi.
+      </p>
+
+      <p>
+        Pada tahun 1957, Buffett mengoperasikan tiga kemitraan investasi. Pada
+        tahun 1959, jumlahnya telah bertambah menjadi enam kemitraan. Pada musim
+        panas itu, Buffett diperkenalkan kepada calon rekannya, Charlie Munger,
+        selama makan siang bisnis di The Omaha Club. Pada tahun 1961, Buffett
+        mengungkapkan bahwa 35% aset kemitraan diinvestasikan di Sanborn Map
+        Company. Ia menjelaskan bahwa saham Sanborn hanya dijual seharga $45 per
+        saham pada tahun 1958 (setara dengan $490 pada tahun 2024), tetapi
+        portofolio investasi perusahaan bernilai $65 per saham (setara dengan
+        $708 pada tahun 2024). Ini berarti bahwa bisnis peta Sanborn dinilai
+        "minus $20". Buffett akhirnya membeli 23% saham perusahaan yang beredar
+        sebagai investor aktivis, memperoleh kursi untuk dirinya sendiri di
+        dewan direksi, dan bersekutu dengan pemegang saham lain yang tidak puas
+        untuk mengendalikan 44% saham. Untuk menghindari perebutan kekuasaan
+        melalui perwakilan, dewan direksi menawarkan untuk membeli kembali saham
+        dengan nilai wajar, dengan membayar sebagian dari portofolio
+        investasinya. 77% dari saham yang beredar dikembalikan. Buffett telah
+        menuai keuntungan investasi sebesar 50 persen hanya dalam dua tahun.
+      </p>
+    </div>
+    <!-- main -->
+  </body>
+</html>

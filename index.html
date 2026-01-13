@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PROJECT FADHLAN KELAS 12</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="styleInvest.css" /> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        zoom = $(".feature").css("background-size");
+        zoom = parseFloat(zoom) / 100;
+        size = zoom * $(".feature").width();
+        $(window).on("scroll", function () {
+          fromTop = $(window).scrollTop();
+          newSize = size - fromTop / 3;
+          if (newSize > $(".feature").width()) {
+            $(".feature").css({
+              "-webkit-background-size": newSize,
+              "-moz-background-size": newSize,
+              "-o-background-size": newSize,
+              "background-size": newSize,
+              "-webkit-filter": "blur(" + 0 + fromTop / 100 + "px)",
+              opacity: 1 - (fromTop / $("html").height()) * 1.3,
+            });
+          }
+        });
+      });
+
+      $(function () {
+        var isChrome =
+          /Chrome/.test(navigator.userAgent) &&
+          /Google Inc/.test(navigator.vendor);
+        var isSafari =
+          /Safari/.test(navigator.userAgent) &&
+          /Apple Computer/.test(navigator.vendor);
+
+        if (isChrome || isSafari) {
+        } else {
+          $(".feature").append('<div class="opaque"></div>');
+          $(window).on("scroll", function () {
+            var opacity = 0 + $(window).scrollTop() / 5000;
+            $(".opaque").css("opacity", opacity);
+          });
+        }
+      });
+    </script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background: #232323;
+        color: #fff;
+      }
+      .opaque {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        background: #d2d6f1;
+      }
+      .lt-ie9 .opaque {
+        display: none;
+      }
+      .feature {
+        position: fixed;
+        top: 0;
+        z-index: 0;
+        width: 100%;
+        padding-top: 50%;
+        background: url("./assets/keneveBG.jpg") center center no-repeat;
+        -webkit-background-size: 250%;
+        -moz-background-size: 250%;
+        -o-background-size: 250%;
+        background-size: 150%;
+        -webkit-box-shadow: 0 -50px 20px -20px #232323 inset;
+        -moz-box-shadow: 0 -50px 20px -20px #232323 inset;
+        box-shadow: 0 -50px 20px -20px #232323 inset;
+      }
+      .content {
+        position: relative;
+        z-index: 1;
+        padding-top: 45%;
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      @media only screen and (min-width: 36.25em) {
+        .content {
+          width: 60%;
+          padding-top: 35%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar bg-body-tertiary fixed-top" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">MetricMind</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Main Menu</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="invest.html">Investmen</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Warren Buffet
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="biography.html">Biography</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item active" href="leterWarren.html"
+                      >Annual Letter</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <br /><br />
+    <!-- navbar -->
+
+    <!-- main -->
+    <div class="feature"></div>
+    <div class="content">
+      <!-- card image -->
+
+      <div class="p-1 mt-3 bg-transparent">
+        <!-- <div class="holographic-card"> -->
+        <div
+          class="card m-3 justify-content-center rounded mx-auto d-block holographic-card"
+        >
+          <img
+            src="./assets/Warren Buffett Wannabes Lose Luster.jpg"
+            class="card-img-top border border-black"
+            alt="..."
+          />
+          <!-- <div class="card-body bg-secondary" style="color: rgb(0, 0, 0)">
+            <h3 style="font-family: monospace" class="card-title text-center">
+              “Kesuksesan Tidak Terjadi dalam Semalam”
+            </h3>
+          </div> -->
+        </div>
+        <!-- </div> -->
+      </div>
+
+      <!-- card -->
+      <div class="m-3">
+        <div
+          class="card mx-auto justify-content-center bg-transparent"
+        >
+          <div
+            class="card-body hover-underline text-center"
+            style="font-family: monospace;"
+          >
+            <h5 class="card-title">Apa Itu Investasi?</h5>
+            <p class="card-text ">
+              Menurut Warren Buffett, investasi bukanlah sebuah aktivitas
+              spekulasi atau perjudian, melainkan tindakan Forgoing Consumption
+              (menunda konsumsi saat ini) untuk mendapatkan daya beli yang lebih
+              besar di masa depan. Beliau mendefinisikan investasi sebagai
+              proses meletakkan uang sekarang dengan harapan akan menerima lebih
+              banyak uang di kemudian hari setelah memperhitungkan faktor
+              Inflation (penurunan nilai mata uang akibat kenaikan harga barang
+              dan jasa). Baginya, investasi yang sukses membutuhkan Margin of
+              Safety (selisih antara harga beli dengan nilai intrinsik suatu
+              aset sebagai pelindung dari kesalahan analisis) serta disiplin
+              untuk tetap berada dalam Circle of Competence (lingkaran
+              kompetensi) tanpa terpengaruh oleh fluktuasi pasar jangka pendek.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- main -->
+  </body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Investmen</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <!-- <link rel="stylesheet" href="styleInvest.css" /> -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(function () {
+        zoom = $(".feature").css("background-size");
+        zoom = parseFloat(zoom) / 100;
+        size = zoom * $(".feature").width();
+        $(window).on("scroll", function () {
+          fromTop = $(window).scrollTop();
+          newSize = size - fromTop / 3;
+          if (newSize > $(".feature").width()) {
+            $(".feature").css({
+              "-webkit-background-size": newSize,
+              "-moz-background-size": newSize,
+              "-o-background-size": newSize,
+              "background-size": newSize,
+              "-webkit-filter": "blur(" + 0 + fromTop / 100 + "px)",
+              opacity: 1 - (fromTop / $("html").height()) * 1.3,
+            });
+          }
+        });
+      });
+
+      $(function () {
+        var isChrome =
+          /Chrome/.test(navigator.userAgent) &&
+          /Google Inc/.test(navigator.vendor);
+        var isSafari =
+          /Safari/.test(navigator.userAgent) &&
+          /Apple Computer/.test(navigator.vendor);
+
+        if (isChrome || isSafari) {
+        } else {
+          $(".feature").append('<div class="opaque"></div>');
+          $(window).on("scroll", function () {
+            var opacity = 0 + $(window).scrollTop() / 5000;
+            $(".opaque").css("opacity", opacity);
+          });
+        }
+      });
+    </script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body,
+      html {
+        padding: 0;
+        margin: 0;
+      }
+      body {
+        background: #232323;
+        color: #fff;
+      }
+      .opaque {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        background: #d2d6f1;
+      }
+      .lt-ie9 .opaque {
+        display: none;
+      }
+      .feature {
+        position: fixed;
+        top: 0;
+        z-index: 0;
+        width: 100%;
+        padding-top: 50%;
+        background: url('./assets/investmenBG.jpg')
+          center center no-repeat;
+        -webkit-background-size: 250%;
+        -moz-background-size: 250%;
+        -o-background-size: 250%;
+        background-size: 150%;
+        -webkit-box-shadow: 0 -50px 20px -20px #232323 inset;
+        -moz-box-shadow: 0 -50px 20px -20px #232323 inset;
+        box-shadow: 0 -50px 20px -20px #232323 inset;
+      }
+      .content {
+        position: relative;
+        z-index: 1;
+        padding-top: 45%;
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      @media only screen and (min-width: 36.25em) {
+        .content {
+          width: 60%;
+          padding-top: 35%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar bg-body-tertiary fixed-top" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">MetricMind</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas offcanvas-end"
+          tabindex="-1"
+          id="offcanvasNavbar"
+          aria-labelledby="offcanvasNavbarLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Main Menu</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="invest.html">Investmen</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Warren Buffet
+                </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a class="dropdown-item" href="biography.html">Biography</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="leterWarren.html"
+                      >Annual Letter</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <br /><br />
+    <!-- navbar -->
+
+    <!-- main -->
+    <div class="feature"></div>
+    <div class="content">
+      <h2>Apa Itu Investasi Sebenarnya</h2>
+      <p>
+         Simpelnya, Investasi adalah seni membuat uang kamu bekerja untuk kamu
+        (making your money work for you), bukan cuma kamu yang bekerja untuk
+        cari uang. Bayangkan uang kamu itu seperti "pasukan". Kalau kamu simpan
+        di bawah bantal atau di tabungan biasa, pasukan itu "tidur". Investasi
+        adalah cara kamu mengirim pasukan itu ke medan perang (pasar modal,
+        properti, bisnis) supaya mereka pulang membawa "tawanan"
+        (keuntungan/uang lebih banyak). Tujuan utamanya cuma satu: Mengalahkan
+        Inflasi (Beating Inflation) dan membangun kekayaan (Wealth
+        Accumulation).
+      </p>
+      <h2>Konsep Dasar: The Pillars of Investment</h2>
+      <p>
+        <b>1. Risk-Return Trade-off (Hukum Timbal Balik Risiko dan Hasil)</b>
+        Ini hukum besi. "High Risk, High Return. Low Risk, Low Return." Kalau
+        ada yang nawarin investasi dengan keuntungan besar tapi risikonya nol,
+        itu hampir pasti bodong (scam). Contoh: Saham potensi untungnya tinggi,
+        tapi bisa rugi besar. Deposito aman banget, tapi untungnya "receh".
+      </p>
+      <p>
+        <b>2. Compound Interest (Bunga Berbunga)</b>
+        Albert Einstein konon menyebut ini "Keajaiban Dunia ke-8". Ini adalah
+        efek bola salju. Misal kamu investasi Rp10 juta dengan keuntungan 10%
+        per tahun. Tahun 1: Untung Rp1 juta. Total uang = Rp11 juta. Tahun 2:
+        Keuntungan 10% dihitung dari Rp11 juta, bukan Rp10 juta lagi. Jadi
+        untungnya Rp1,1 juta. Dalam jangka panjang, efek ini eksponensial.
+        Inilah kenapa time (waktu) lebih penting daripada timing (momen masuk
+        pasar).
+      </p>
+      <h2>Kendaraan Investasi (Asset Classes)</h2>
+      <p>
+        <b>1. Stocks / Equities (Saham)</b>
+        Konsep: Kamu membeli bukti kepemilikan sebuah perusahaan. Kalau kamu
+        beli saham BCA, kamu secara harfiah adalah pemilik sebagian kecil dari
+        bank tersebut. Cara Untung: Capital Gain: Harga saham naik (beli di
+        5.000, jual di 7.000). Dividend: Perusahaan bagi-bagi keuntungan tunai
+        kepada pemegang saham. Profil: Risiko tinggi, potensi untung tinggi
+        dalam jangka panjang.
+      </p>
+      <p>
+        <b>2. Bonds / Fixed Income (Obligasi / Surat Utang)</b>
+        Konsep: Kamu meminjamkan uang ke Pemerintah (SBN/ORI) atau Perusahaan.
+        Sebagai gantinya, mereka janji balikin uang pokok kamu plus bunga
+        (coupon) secara rutin. Cara Untung: Dapat bunga rutin (coupon) setiap
+        bulan/tahun. Profil: Risiko rendah hingga menengah (terutama kalau
+        pinjamkan ke negara, hampir pasti bayar). Cocok buat cari passive income
+        yang stabil.
+      </p>
+      <p>
+       <b> 3. Mutual Funds (Reksadana)</b>
+        Konsep: Kamu dan ribuan orang lain patungan kumpulin uang, lalu uang itu
+        diserahkan ke "supir profesional" bernama Manajer Investasi (MI). MI
+        inilah yang pusing mikirin mau beli saham apa atau obligasi apa.
+        Jenisnya: Ada Reksadana Saham, Reksadana Pasar Uang (mirip deposito),
+        dll. Profil: Cocok buat pemula yang nggak punya waktu buat analisa pasar
+        sendiri.
+      </p>
+    </div>
+    <!-- main -->
+  </body>
+</html>
